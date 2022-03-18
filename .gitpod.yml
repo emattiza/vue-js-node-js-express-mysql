@@ -3,6 +3,7 @@ tasks:
   - init: npm install
     command: |
       gp sync-await 3306
+      sleep 3
       npm run dev
     name: run app
   - init: |
