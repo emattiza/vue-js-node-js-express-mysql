@@ -1,1 +1,1 @@
-FROM gitpod/workspace-gitpod/workspace-node-lts
+FROM gitpod/workspace-node-lts
