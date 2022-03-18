@@ -1,11 +1,15 @@
+
 tasks:
   - init: npm install
     command: |
       gp sync-await 3306
       npm run dev
     name: run app
-  - init: docker-compose -f .gitpod/docker-compose.yml pull
-    command: docker-compose -f .gitpod/docker-compose.yml -d up && gp sync-done 3306
+  - init: |
+      docker-compose -f .gitpod/docker-compose.yml pull
+    command: |
+      docker-compose -f .gitpod/docker-compose.yml up -d 
+      gp sync-done 3306
     name: run mysql
 
 image:
@@ -17,3 +21,9 @@ github:
     master: true
     branches: true
     pullRequests: true
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - octref.vetur
